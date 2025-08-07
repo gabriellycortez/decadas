@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagem Psicodélica - Anos 60</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Rock+Salt&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #ff00cc, #3333ff, #00ff99, #ffcc00);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .title {
+            font-family: 'Rubik Doodle Shadow', cursive;
+            font-size: 4.5rem;
+            text-transform: uppercase;
+            color: #ffff00;
+            text-shadow: 
+                3px 3px 0 #ff00ff, 
+                -3px -3px 0 #00ffff;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            animation: titleGlow 2s infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from { text-shadow: 3px 3px 0 #ff00ff, -3px -3px 0 #00ffff; }
+            to { text-shadow: 5px 5px 0 #ff00ff, -5px -5px 0 #00ffff, 0 0 20px #ffff00; }
+        }
+        
+        .subtitle {
+            font-family: 'Rock Salt', cursive;
+            font-size: 1.8rem;
+            color: #ff00ff;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px #000;
+        }
+        
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 50px;
+            margin: 20px auto;
+            max-width: 80%;
+            border: 3px dashed #00ff99;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            font-family: 'Rock Salt', cursive;
+            margin: 5px 15px;
+            color: #ffff00;
+            text-decoration: none;
+            font-size: 1.3rem;
+            padding: 5px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: #ff00cc;
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+            transition: all 0.4s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+        }
+        
+        .card-title {
+            font-family: 'Rock Salt', cursive;
+            font-size: 1.8rem;
+            color: #00ffff;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 2px dotted #ffff00;
+            padding-bottom: 10px;
+        }
+        
+        .card-content {
+            font-size: 1.1rem;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #ff00cc;
+            transform: rotate(3deg);
+            transition: all 0.3s ease;
+            aspect-ratio: 1/1;
+            background: linear-gradient(45deg, #ff00cc, #00ff99);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .gallery-item:nth-child(even) {
+            transform: rotate(-3deg);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.1) rotate(0deg);
+            z-index: 3;
+            box-shadow: 0 0 20px #ffff00;
+        }
+        
+        .flower-power {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #ff00ff 0%, #ffff00 70%);
+            border-radius: 50%;
+            animation: rotateFlower 20s linear infinite;
+            z-index: 1;
+        }
+        
+        .flower-power:before, .flower-power:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #00ffff 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .flower-power:before {
+            transform: rotate(60deg);
+        }
+        
+        .flower-power:after {
+            transform: rotate(120deg);
+        }
+        
+        @keyframes rotateFlower {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .peace-sign {
+            position: absolute;
+            font-size: 5rem;
+            transform: rotate(-20deg);
+            animation: peaceFloat 8s ease-in-out infinite;
+        }
+        
+        @keyframes peaceFloat {
+            0%, 100% { transform: rotate(-20deg) translateY(0); }
+            50% { transform: rotate(-25deg) translateY(-20px); }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 4px dotted #00ff99;
+            border-radius: 50% 50% 0 0;
+            font-family: 'Rock Salt', cursive;
+            color: #ffff00;
+            font-size: 1.2rem;
+        }
+        
+        .groovy-text {
+            font-family: 'Rubik Doodle Shadow', cursive;
+            color: #ff00ff;
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+        
+        /* Posicionando elementos flutuantes psicodélicos */
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .element-1 { top: 10%; left: 5%; width: 80px; height: 80px; }
+        .element-2 { top: 20%; right: 10%; width: 60px; height: 60px; }
+        .element-3 { bottom: 15%; left: 15%; width: 100px; height: 100px; }
+        .element-4 { bottom: 25%; right: 20%; width: 70px; height: 70px; }
+        
+        .vinyl {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #000 30%, #333 30%, #333 32%, #000 32%);
+            border-radius: 50%;
+            border: 5px dashed #ffcc00;
+            animation: spin 20s linear infinite;
+            top: 50%;
+            right: 5%;
+            z-index: 1;
+        }
+        
+        .vinyl:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            background: #ff00ff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px #ff00ff;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .beatles-quote {
+            font-style: italic;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 0, 204, 0.2);
+            border-left: 5px solid #00ff99;
+            border-right: 5px solid #00ff99;
+            font-size: 1.4rem;
+            color: #ffff00;
+            font-family: 'Rock Salt', cursive;
+            border-radius: 30px;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #ff00cc, #00ff99);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            width: 45%;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            align-self: flex-start;
+        }
+        
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+        }
+        
+        .timeline-year {
+            font-family: 'Rubik Doodle Shadow', cursive;
+            font-size: 2rem;
+            color: #ffff00;
+            margin-bottom: 10px;
+        }
+        
+        .hippie-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #ff00cc, #00ff99);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Rock Salt', cursive;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin-top: 10px;
+        }
+        
+        .hippie-button:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 20px #ffff00;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+            }
+            
+            .vinyl {
+                display: none;
+            }
+            
+            .timeline:before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 80%;
+                margin-left: 40px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Elementos flutuantes psicodélicos -->
+    <div class="floating-element element-1 flower-power"></div>
+    <div class="floating-element element-2 flower-power"></div>
+    <div class="floating-element element-3 flower-power"></div>
+    <div class="floating-element element-4">
+        <div class="peace-sign">✌️</div>
+    </div>
+    
+    <div class="vinyl"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="title">Viagem Psicodélica</h1>
+            <p class="subtitle">Volte no tempo para a era da paz e amor ✌️🌸</p>
+        </header>
+        
+        <div class="nav-bar">
+            <a href="#" class="nav-link">Início</a>
+            <a href="#" class="nav-link">Cultura</a>
+            <a href="#" class="nav-link">Música</a>
+            <a href="#" class="nav-link">Arte</a>
+            <a href="#" class="nav-link">Moda</a>
+            <a href="#" class="nav-link">Contato</a>
+        </div>
+        
+        <div class="beatles-quote">
+            "Tudo que você precisa é amor, amor. Amor é tudo que você precisa." - The Beatles
+        </div>
+        
+        <div class="content">
+            <div class="card">
+                <h2 class="card-title">A Revolução Hippie</h2>
+                <p class="card-content">Os anos 60 foram marcados por uma explosão de criatividade e mudança social. A juventude questionava valores tradicionais e buscava novas formas de expressão.</p>
+                <p class="card-content">Movimentos como o hippie pregavam paz, amor e liberdade, enquanto a cultura pop se transformava com o surgimento de ícones como os Beatles e Jimi Hendrix.</p>
+                <a href="#" class="hippie-button">Paz e Amor ✌️</a>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">Arte Psicodélica</h2>
+                <p class="card-content">A arte dos anos 60 era uma explosão de cores vibrantes e formas fluidas. Cartazes de concertos, capas de álbuns e ilustrações experimentavam com padrões ópticos e visuais hipnóticos.</p>
+                <div class="gallery">
+                    <div class="gallery-item">🌀</div>
+                    <div class="gallery-item">🌼</div>
+                    <div class="gallery-item">🌈</div>
+                    <div class="gallery-item">🌺</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">Moda Flower Power</h2>
+                <p class="card-content">A moda dos anos 60 era uma celebração de cores, padrões e texturas. Estampas florais, calças boca-de-sino, túnicas e vestidos curtos definiam o estilo.</p>
+                <p class="card-content">O visual era uma forma de expressão pessoal e rebeldia contra as normas conservadoras da época.</p>
+                <a href="#" class="hippie-button">Flower Power 🌸</a>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title">Música que Mudou o Mundo</h2>
+                <p class="card-content">A música dos anos 60 foi a trilha sonora de uma revolução. Do folk engajado de Bob Dylan ao rock psicodélico do Pink Floyd, cada gênero carregava uma mensagem de transformação.</p>
+                <div class="gallery">
+                    <div class="gallery-item">🎸</div>
+                    <div class="gallery-item">🎤</div>
+                    <div class="gallery-item">🎧</div>
+                    <div class="gallery-item">🥁</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title">Linha do Tempo dos Anos 60</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1964</div>
+                    <p>Os Beatles chegam aos EUA e começam a "Invasão Britânica".</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1967</div>
+                    <p>Verão do Amor em São Francisco e lançamento do álbum Sgt. Pepper's Lonely Hearts Club Band.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1969</div>
+                    <p>Festival de Woodstock reúne mais de 400 mil pessoas em 3 dias de paz e música.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1969</div>
+                    <p>Humanos chegam à Lua na missão Apollo 11.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="groovy-text">Paz & Amor ✌️</div>
+            <p>© 1967-1969 Viagem Psicodélica - Todos os direitos reservados</p>
+            <p>Faça amor, não faça guerra! ✌️🌸</p>
+            <p class="subtitle">Volte sempre para uma dose de nostalgia psicodélica!</p>
+        </footer>
+    </div>
+</body>
+</html>
